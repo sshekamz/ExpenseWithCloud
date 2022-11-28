@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Daily Expense</title>
+    <link rel="stylesheet" href="./expense/style.css">
+    <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.26.1/axios.min.js"></script>
+    <script src="./expense/script.js" defer></script>
+</head>
+<body>
+    <div class="btn-div-top" id="prem-btn">
+        <button class="form-btn" id="btn-rzp">Buy Premium Membership</button>
+        <button onclick="logout(event)" class="form-btn">Logout</button>
+    </div>
+    <div class="parent-container">
+        <form id="form" onsubmit="addexpense(event)">
+            <h1>Add Expense</h1>
+            <div>
+                <label for="amount" class="form-label">Amount</label>
+                <input type="number" class="form-input" id="amount" required>
+            </div>
+            <div>
+                <label for="description" class="form-label">Description</label>
+                <input type="text" class="form-input" id="description" required>
+            </div>
+            <div>
+                <label for="category" class="form-label">Categoty</label>
+                <select class="form-input" id="category" required>
+                    <option value="food">Food</option>
+                    <option value="petrol">Petrol</option>
+                    <option value="salary">Salary</option>
+                    <option value="misc">Misc</option>
+                </select>
+            </div>
+            
+            <div class="add-expense-btn-div">
+                <button type="submit" class="form-btn" id="btn-add">Add expense</button>
+            </div>
+        </form>
+
+        <div class="expense-display-container">
+            <h1>Daily Expense</h1>
+            <section class="select-pages">
+                <p>Select no of pages</p>
+                <select name="page" id="page">
+                    <option value="5">5</option>
+                    <option value="8">8</option>
+                    <option value="10">10</option>
+                    <option value="15">15</option>
+                </select>
+                <button id="new-limit" onclick="newLimit()">Get Expenses</button>
+            </section>
+            <div class="expense-display-heading">
+                <span>Amount</span>
+                <span>Description</span>
+                <span>Category</span>
+            </div>
+            <div class="expense-display" id="expense-display">
+            </div>
+            <section class="pagination" id="pagination"></section>
+            <div class="download-btn-div" id="download-btn" style="display: none;">
+                <button onclick="download()" class="form-btn">Download Report</button>
+                <button onclick="showReports()">Show Reports</button>   
+            </div>
+            <div id="show-reports" ></div>
+        </div>
+
+        <div class="leaderboard-container" id="leaderboard-container">
+            <h2>LeaderBoard</h2>
+            <div class="leaderboard-heading">
+                <span>User</span>
+                <span>Expense</span>
+            </div>
+            <div class="leaderboard-content" id="leaderboard-content"></div>
+            <div id="leaderboard-expense-show" class="expense-container"></div>
+        </div>
+    </div>
+</body>
+</html>
+

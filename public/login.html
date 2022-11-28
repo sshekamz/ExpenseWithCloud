@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <link rel="stylesheet" href="./signup-login/style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.26.1/axios.min.js"></script>
+    <script src="./signup-login/script.js" defer></script>
+</head>
+<body>
+    <div class="form-container">
+        <h1>Login</h1>
+        <form id="form" onsubmit="login(event)">
+            <label for="email" class="form-label">E-Mail</label>
+            <input type="email" class="form-input" id="email" required><br>
+            <label for="password" class="form-label">Password</label>
+            <input type="password" class="form-input" id="pass" required><br>
+            <div>
+                <button type="submit" class="form-btn" id="btn-login">Login</button>
+            </div>
+        </form>
+        <p>Don't have an account? <a href="./signup.html">Sign Up</a></p>
+        <button onclick="forgotPass()" id="btn-forgot" class="form-btn">Forgot Password</button>
+        <div style="display:none" id='reset-div'>
+            <form id="form-reset" onsubmit="resetLink()">
+                <label for="email" >Enter your email</label>
+                <input type="email" name="email" id="email-reset" class="form-input" required>
+                <button type="submit" id="btn-reset" class="form-btn">Submit</button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>
+
