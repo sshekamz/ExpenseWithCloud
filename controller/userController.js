@@ -47,7 +47,8 @@ exports.login = async(req, res) => {
                 if (response) {
                     // console.log(JSON.stringify(user));
                     const jwtToken = generateAccessToken(user[0].id);
-                    res.status(200).json({token: jwtToken, userId: user[0].id, success: true, message: 'successfully logged in', premium: user[0].ispremiumuser});
+                    //console.log(user[0]);
+                    res.status(200).json({token: jwtToken, userId: user[0].id, success: true, message: 'successfully logged in', premium: user[0].isPremiumuser});
                 }
                 else {
                     return res.status(401).json({success: false, message: 'password do not match'});
