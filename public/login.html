@@ -22,9 +22,9 @@
             </div>
         </form>
         <p>Don't have an account? <a href="./signup.html">Sign Up</a></p>
-        <button onclick="forgotPass()" id="btn-forgot" class="form-btn">Forgot Password</button>
+        <button onclick="forgotPass(event)" id="btn-forgot" class="form-btn">Forgot Password</button>
         <div style="display:none" id='reset-div'>
-            <form id="form-reset" onsubmit="resetLink()">
+            <form id="form-reset" onsubmit="resetLink(event)">
                 <label for="email" >Enter your email</label>
                 <input type="email" name="email" id="email-reset" class="form-input" required>
                 <button type="submit" id="btn-reset" class="form-btn">Submit</button>

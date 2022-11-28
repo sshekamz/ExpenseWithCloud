@@ -14,8 +14,8 @@ app.use(express.json());
 
 
 //env
-// const dotenv = require('dotenv');
-// dotenv.config();
+const dotenv = require('dotenv');
+dotenv.config();
 
 //database
 const sequelize = require('./util/database');
@@ -29,8 +29,8 @@ const premiumRoutes= require('./routes/premiumRoutes');
 const User = require('./model/user');
 const Expense = require('./model/expense');
 const Order = require('./model/order');
-// const ForgotPassword = require('./model/forgot-password');
-// const Report = require('./model/report');
+const ForgotPassword = require('./model/forgot-password');
+const Report = require('./model/report');
 
 // associations
 User.hasMany(Expense);
@@ -39,11 +39,11 @@ Expense.belongsTo(User);
 User.hasOne(Order);
 Order.belongsTo(User);
 
-// User.hasMany(ForgotPassword);
-// ForgotPassword.belongsTo(User);
+User.hasMany(ForgotPassword);
+ForgotPassword.belongsTo(User);
 
-// User.hasMany(Report);
-// Report.belongsTo(User);
+User.hasMany(Report);
+Report.belongsTo(User);
 
 //routes
 app.use(userRoutes);

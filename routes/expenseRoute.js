@@ -13,8 +13,8 @@ expenseRoutes.get('/get-expense',  authMiddleware.authenticate,expenseController
 
 expenseRoutes.post('/delete-expense/:expenseId', /*authMiddleware.authenticate,*/ expenseController.removeExpense);
 
-//expenseRoutes.get('/download', authMiddleware.authenticate, expenseController.downloadExpense);
+expenseRoutes.get('/download', authMiddleware.authenticate, expenseController.downloadExpense);
 
-//expenseRoutes.get('/get-reports', authMiddleware.authenticate, expenseController.getReports);
+expenseRoutes.get('/get-reports', authMiddleware.authenticate, expenseController.getReports);
 
 module.exports = expenseRoutes;
