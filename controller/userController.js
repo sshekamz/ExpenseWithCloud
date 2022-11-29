@@ -7,7 +7,7 @@ const User = require('../model/user');
 const ForgotPassword = require('../model/forgot-password');
 
 function generateAccessToken(id) {
-    return jwt.sign(id, 'bigerkey12345');
+    return jwt.sign(id, process.env.TOKEN_KEY);
 }
 
 exports.signUp = (req, res) => {

@@ -24,10 +24,10 @@
     "jsonwebtoken": "^8.5.1",
     "morgan": "^1.10.0",
     "mysql2": "^2.3.3",
+    "nodemon": "^2.0.20",
     "pug": "^3.0.2",
     "razorpay": "^2.8.1",
     "sequelize": "^6.21.0",
     "uuid": "^8.3.2"
-    
   }
 }

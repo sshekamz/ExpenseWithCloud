@@ -1,8 +1,9 @@
 const path = require('path');
 const fs = require('fs');
 // const https = require('https');
-
+const helemt=require('helmet')
 const express = require('express');
+const morgan=require('morgan')
 
 const app = express();
 
@@ -12,7 +13,8 @@ const cors = require('cors');
 app.use(cors());
 app.use(express.json());
 
-
+//LOG file
+const accessLogStream = fs.createWriteStream(path.join(__dirname, 'access.log'), {flags: 'a'});
 //env
 const dotenv = require('dotenv');
 dotenv.config();
@@ -45,7 +47,11 @@ ForgotPassword.belongsTo(User);
 User.hasMany(Report);
 Report.belongsTo(User);
 
+app.use(helemt())
+app.use(morgan('combined',{stream: accessLogStream}));
+
 //routes
+
 app.use(userRoutes);
 app.use(expenseRoutes);
 app.use(premiumRoutes);
