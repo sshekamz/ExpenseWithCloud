@@ -246,6 +246,7 @@ function logout(e) {
 }
 
 function download() {
+    const token=localStorage.getItem('token')
     axios.get('http://localhost:3000/download', { headers: { 'Authorization': token } })
         .then(response => {
             if (response.status === 201) {

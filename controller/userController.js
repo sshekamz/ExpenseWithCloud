@@ -77,7 +77,7 @@ exports.forgotPassword = async (req, res) => {
                     throw new Error(err)
                 })
 
-            sgMail.setApiKey('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')
+            sgMail.setApiKey(process.env.SENGRID_API_KEY)
 
             const msg = {
                 to: email,
